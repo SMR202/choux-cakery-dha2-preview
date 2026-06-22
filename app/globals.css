@@ -1,0 +1,138 @@
+:root {
+  --ink: #251b16;
+  --muted: #705d54;
+  --cream: #fff7ec;
+  --paper: #fffdf8;
+  --crust: #b87435;
+  --berry: #9a3f52;
+  --mint: #7e9476;
+  --line: rgba(37, 27, 22, 0.14);
+}
+* { box-sizing: border-box; }
+body {
+  margin: 0;
+  background: var(--cream);
+  color: var(--ink);
+  font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+}
+a { color: inherit; text-decoration: none; }
+img { width: 100%; height: 100%; object-fit: cover; display: block; }
+p { margin-top: 0; color: var(--muted); line-height: 1.7; }
+h1, h2, h3 { margin-top: 0; letter-spacing: 0; }
+h1, h2 { font-family: Georgia, 'Times New Roman', serif; }
+.hero {
+  min-height: 91vh;
+  display: grid;
+  grid-template-columns: minmax(0, 0.92fr) minmax(320px, 1.08fr);
+  border-bottom: 1px solid var(--line);
+}
+.heroText {
+  padding: clamp(34px, 7vw, 96px);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 24px;
+}
+.eyebrow {
+  margin: 0 0 10px;
+  color: var(--berry);
+  font-size: .78rem;
+  font-weight: 900;
+  text-transform: uppercase;
+  letter-spacing: .08em;
+}
+h1 { font-size: clamp(5rem, 13vw, 12rem); line-height: .78; margin-bottom: 0; }
+h2 { font-size: clamp(2.1rem, 5vw, 4.6rem); line-height: .95; margin-bottom: 18px; }
+h3 { font-size: 1.05rem; margin-bottom: 10px; }
+.lead { max-width: 640px; font-size: clamp(1.1rem, 2vw, 1.35rem); }
+.actions { display: flex; flex-wrap: wrap; gap: 14px; }
+.primary, .secondary {
+  min-height: 48px;
+  border-radius: 999px;
+  padding: 14px 20px;
+  font-weight: 900;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+.primary { background: var(--ink); color: var(--paper); }
+.secondary { background: rgba(255,255,255,.62); border: 1px solid var(--line); }
+.stats {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 12px;
+  max-width: 620px;
+}
+.stats span {
+  background: rgba(255,255,255,.62);
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  padding: 16px;
+  color: var(--muted);
+}
+.stats strong { display: block; color: var(--ink); font-size: 1.6rem; }
+.heroPhoto { min-height: 520px; position: relative; }
+.heroPhoto::after { content: ''; position: absolute; inset: 0; background: linear-gradient(90deg, rgba(255,247,236,.08), rgba(184,116,53,.22)); }
+.strip, .products, .visit { padding: clamp(38px, 7vw, 96px); }
+.strip {
+  display: grid;
+  grid-template-columns: minmax(260px, .85fr) minmax(0, 1fr);
+  gap: clamp(30px, 6vw, 90px);
+  align-items: center;
+  background: var(--paper);
+  border-bottom: 1px solid var(--line);
+}
+.strip p:last-child { font-size: 1.12rem; max-width: 820px; }
+.grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 14px;
+  margin-top: 28px;
+}
+.grid article {
+  min-height: 178px;
+  padding: 24px;
+  border-radius: 8px;
+  border: 1px solid var(--line);
+  background: var(--paper);
+}
+.grid article:nth-child(2n) { background: #fff0e6; }
+.grid article:nth-child(3n) { background: #f3f6ef; }
+.features { display: grid; border-top: 1px solid var(--line); }
+.feature {
+  min-height: 470px;
+  display: grid;
+  grid-template-columns: minmax(260px, .9fr) minmax(0, 1fr);
+  border-bottom: 1px solid var(--line);
+}
+.feature:nth-child(even) { grid-template-columns: minmax(0, 1fr) minmax(260px, .9fr); }
+.feature:nth-child(even) img { order: 2; }
+.feature div { padding: clamp(34px, 7vw, 96px); display: flex; flex-direction: column; justify-content: center; }
+.visit {
+  display: grid;
+  grid-template-columns: minmax(260px, 1fr) minmax(280px, .6fr);
+  gap: clamp(28px, 6vw, 88px);
+  align-items: center;
+  background: #f8efe3;
+}
+.orderBox {
+  display: grid;
+  gap: 12px;
+  padding: 28px;
+  background: var(--paper);
+  border: 1px solid var(--line);
+  border-radius: 8px;
+}
+.orderBox a { color: var(--berry); font-weight: 900; }
+.orderBox p { margin-bottom: 0; font-size: .94rem; }
+@media (max-width: 900px) {
+  .hero, .strip, .feature, .feature:nth-child(even), .visit { grid-template-columns: 1fr; }
+  .feature:nth-child(even) img { order: 0; }
+  .grid { grid-template-columns: 1fr 1fr; }
+}
+@media (max-width: 620px) {
+  .heroText, .strip, .products, .feature div, .visit { padding: 28px 20px; }
+  .stats, .grid { grid-template-columns: 1fr; }
+  .primary, .secondary { width: 100%; }
+  h1 { font-size: clamp(4rem, 28vw, 7rem); }
+}
